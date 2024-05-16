@@ -1,6 +1,7 @@
 const main = document.querySelector("main");
 const myLibrary = [];
 
+
 function Book(title, author, date, pages, format) {
   this.title = title;
   this.author = author;
@@ -9,13 +10,30 @@ function Book(title, author, date, pages, format) {
   this.format = format;
 }
 
+
 function addBookToLibrary(title, author, date, pages, format) {
   let newBook = new Book(title, author, date, pages, format);
   myLibrary.push(newBook);
 
 }
 
+
 function drawBooks(library) {
+  main.innerHTML = "";
+
+  const addButtonDiv = document.createElement("div");
+  addButtonDiv.classList.add("book-container");
+  addButtonDiv.addEventListener("click", (e) => {
+    addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
+    drawBooks(myLibrary);
+  });
+
+  const addButtoninnerDiv = document.createElement("div");
+  addButtoninnerDiv.textContent = "+";
+
+  addButtonDiv.appendChild(addButtoninnerDiv);
+  main.appendChild(addButtonDiv);
+
   for (book of library) {
     const newContainer = document.createElement("div");
     const newImg = document.createElement("img");
@@ -47,18 +65,10 @@ function drawBooks(library) {
   }
 }
 
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
 
+addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
+addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
+addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
+addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
 
 drawBooks(myLibrary);

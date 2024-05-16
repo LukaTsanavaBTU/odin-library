@@ -16,7 +16,6 @@ body {
 .body-container {
     background-color: #ffffff;
     border-radius: 10px;
-    margin: 5px 0;
     width: 80%;
     min-height: calc(100vh - 10px);
 }
@@ -44,6 +43,7 @@ main {
 }
 
 .book-container:first-of-type {
+    cursor: pointer;
     justify-content: center;
     font-size: 5rem;
     font-weight: 300;
