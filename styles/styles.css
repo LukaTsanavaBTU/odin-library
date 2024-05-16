@@ -1,0 +1,73 @@
+:root {
+    --system-font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: var(--system-font);
+    color: #1a4d5f;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #a9f1f8;
+    height: 100vh;
+}
+
+.body-container {
+    background-color: #d1f9fc;
+    border-radius: 10px;
+    margin: 5px 0;
+    width: 80%;
+    height: 100%;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+main {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 0px 10px;
+}
+
+.book-container {
+    border: 1px solid #108eaa;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-container img {
+    border-radius: 5px;
+    height: 300px;
+    width: min(200px, 100%);
+    border: 1px solid #108eaa;
+}
+
+.book-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-container h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.book-container span {
+    color: #1a5d70;
+    font-size: 1.1rem;
+}
+
+
+
