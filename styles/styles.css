@@ -83,5 +83,56 @@ main {
     font-size: 1.1rem;
 }
 
+dialog {
+    position: fixed;
+    top: 20%;
+    left: 0;
+    border: 2px solid #1a4d5f;
+    border-radius: 10px;
+    color: #1a4d5f;
+    font-size: 1.4rem;
+}
 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input {
+    padding: 5px;
+    border: 1px solid #1a4d5f;
+    border-radius: 5px;
+    height: 20px;
+    width: 400px;
+}
+
+form button {
+    background-color: #1a4d5f;
+    color: #ffffff;
+    border: none;
+    font-family: var(--system-font);
+    font-size: 1.4rem;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.dialog-top>:first-child {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #ffffff;
+    padding: 5px 10px;
+    background-color: #1a4d5f;
+    border-radius: 100%;
+    text-align: center;
+    font-weight: 900;
+    font-size: 1rem;
+}

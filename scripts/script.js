@@ -2,17 +2,17 @@ const main = document.querySelector("main");
 const myLibrary = [];
 
 
-function Book(title, author, date, pages, format) {
+function Book(title, author, date, pages, genre) {
   this.title = title;
   this.author = author;
   this.date = date;
   this.pages = pages;
-  this.format = format;
+  this.genre = genre;
 }
 
 
-function addBookToLibrary(title, author, date, pages, format) {
-  let newBook = new Book(title, author, date, pages, format);
+function addBookToLibrary(title, author, date, pages, genre) {
+  let newBook = new Book(title, author, date, pages, genre);
   myLibrary.push(newBook);
 
 }
