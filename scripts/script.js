@@ -1,6 +1,12 @@
 const main = document.querySelector("main");
 const dialog = document.querySelector("dialog");
 const dialogClose = dialog.querySelector("#dialog-close");
+const dialogSubmit = dialog.querySelector("button");
+const titleInput = dialog.querySelector("#title");
+const authorInput = dialog.querySelector("#author");
+const dateInput = dialog.querySelector("#date");
+const pagesInput = dialog.querySelector("#pages");
+const genreInput = dialog.querySelector("#genre");
 const myLibrary = [];
 
 
@@ -27,8 +33,6 @@ function drawBooks(library) {
   addButtonDiv.classList.add("book-container");
   addButtonDiv.addEventListener("click", (e) => {
     dialog.showModal();
-    // addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-    // drawBooks(myLibrary);
   });
 
   const addButtoninnerDiv = document.createElement("div");
@@ -75,9 +79,21 @@ dialogClose.addEventListener("click", (e) => {
 });
 
 
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
+dialogSubmit.addEventListener("click", (e) => {
+  e.preventDefault();
+  newTitle = titleInput.value;
+  newAuthor = authorInput.value;
+  newDate = dateInput.value;
+  newPages = pagesInput.value;
+  newGenre = genreInput.value;
+  addBookToLibrary(newTitle, newAuthor, newDate, `${newPages} pages`, newGenre);
+  drawBooks(myLibrary);
+});
+
+
+addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
+addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
+addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
+addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
 
 drawBooks(myLibrary);
