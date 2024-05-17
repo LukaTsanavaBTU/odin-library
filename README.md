@@ -1,0 +1,1 @@
+A simple library website to demonstrate adding and removing items from a collection using javascript. Made for the Odin Project.
