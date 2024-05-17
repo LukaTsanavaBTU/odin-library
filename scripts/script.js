@@ -1,4 +1,6 @@
 const main = document.querySelector("main");
+const dialog = document.querySelector("dialog");
+const dialogClose = dialog.querySelector("#dialog-close");
 const myLibrary = [];
 
 
@@ -24,12 +26,14 @@ function drawBooks(library) {
   const addButtonDiv = document.createElement("div");
   addButtonDiv.classList.add("book-container");
   addButtonDiv.addEventListener("click", (e) => {
-    addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
-    drawBooks(myLibrary);
+    dialog.showModal();
+    // addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
+    // drawBooks(myLibrary);
   });
 
   const addButtoninnerDiv = document.createElement("div");
   addButtoninnerDiv.textContent = "+";
+  addButtonDiv.classList.add("non-selectable");
 
   addButtonDiv.appendChild(addButtoninnerDiv);
   main.appendChild(addButtonDiv);
@@ -64,6 +68,11 @@ function drawBooks(library) {
     main.appendChild(newContainer);
   }
 }
+
+
+dialogClose.addEventListener("click", (e) => {
+  dialog.close();
+});
 
 
 addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Paperback");
