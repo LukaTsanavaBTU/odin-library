@@ -62,6 +62,16 @@ function drawBooks(library) {
     newAuthorSpan.textContent = book.author;
     newDateSpan.textContent = book.date;
     newPagesSpan.textContent = book.pages;
+
+    newContainer.addEventListener("click", (e) => {
+      if (confirm(`Do you wish to remove ${newTitle.textContent} from the library?`)) {
+        let bookIndex = myLibrary.findIndex((curBook) => {
+          return newTitle.textContent === curBook.title;
+        });
+        myLibrary.splice(bookIndex, 1);
+        drawBooks(myLibrary);
+      }
+    });
   
     newInfoDiv.appendChild(newTitle);
     newInfoDiv.appendChild(newAuthorSpan);
@@ -88,12 +98,13 @@ dialogSubmit.addEventListener("click", (e) => {
   newGenre = genreInput.value;
   addBookToLibrary(newTitle, newAuthor, newDate, `${newPages} pages`, newGenre);
   drawBooks(myLibrary);
+  dialog.close();
 });
 
 
+addBookToLibrary("Metro 2032", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
 addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
+addBookToLibrary("Metro 2034", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
+addBookToLibrary("Metro 2035", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
 
 drawBooks(myLibrary);
