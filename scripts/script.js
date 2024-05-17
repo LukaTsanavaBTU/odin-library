@@ -42,7 +42,7 @@ function drawBooks(library) {
   addButtonDiv.appendChild(addButtoninnerDiv);
   main.appendChild(addButtonDiv);
 
-  for (book of library) {
+  for ([bookIndex, book] of library.entries()) {
     const newContainer = document.createElement("div");
     const newImg = document.createElement("img");
     const newInfoDiv = document.createElement("div");
@@ -52,11 +52,14 @@ function drawBooks(library) {
     const newPagesSpan = document.createElement("span");
   
     newImg.setAttribute("src", "https://m.media-amazon.com/images/I/81C+pXJfbdL._AC_UF1000,1000_QL80_DpWeblab_.jpg");
-  
+
     newContainer.classList.add("book-container");
     newAuthorSpan.classList.add("book-author");
     newDateSpan.classList.add("book-date");
     newPagesSpan.classList.add("book-pages");
+
+    newContainer.setAttribute("data-index", bookIndex)
+    newContainer.setAttribute("data-title", book.title)
   
     newTitle.textContent = book.title;
     newAuthorSpan.textContent = book.author;
@@ -64,11 +67,8 @@ function drawBooks(library) {
     newPagesSpan.textContent = book.pages;
 
     newContainer.addEventListener("click", (e) => {
-      if (confirm(`Do you wish to remove ${newTitle.textContent} from the library?`)) {
-        let bookIndex = myLibrary.findIndex((curBook) => {
-          return newTitle.textContent === curBook.title;
-        });
-        myLibrary.splice(bookIndex, 1);
+      if (confirm(`Do you wish to remove ${newContainer.getAttribute("data-title")} from the library?`)) {
+        myLibrary.splice(newContainer.getAttribute("data-index"), 1);
         drawBooks(myLibrary);
       }
     });
