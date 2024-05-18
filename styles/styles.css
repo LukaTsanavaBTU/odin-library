@@ -40,6 +40,7 @@ main {
 }
 
 .book-container {
+    position: relative;
     border-radius: 10px;
     padding: 10px;
     gap: 10px;
@@ -69,7 +70,7 @@ main {
     width: min(200px, 100%);
 }
 
-.book-container div {
+.book-container div:last-child {
     display: flex;
     flex-direction: column;
 }
@@ -148,4 +149,26 @@ form button:active {
     text-align: center;
     font-weight: 900;
     font-size: 1rem;
+}
+
+.disable {
+    display: none;
+}
+
+.delete-book {
+    opacity: 0.8;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    background-color: #1a4d5f;
+    border-radius: 100%;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    font-weight: 700;
+}
+
+.delete-book:hover {
+    background-color: #113b4b;
 }

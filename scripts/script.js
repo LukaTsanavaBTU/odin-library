@@ -50,6 +50,7 @@ function drawBooks(library) {
     const newAuthorSpan = document.createElement("span");
     const newDateSpan = document.createElement("span");
     const newPagesSpan = document.createElement("span");
+    const deleteBookDiv = document.createElement("div");
   
     newImg.setAttribute("src", "https://m.media-amazon.com/images/I/81C+pXJfbdL._AC_UF1000,1000_QL80_DpWeblab_.jpg");
 
@@ -57,6 +58,7 @@ function drawBooks(library) {
     newAuthorSpan.classList.add("book-author");
     newDateSpan.classList.add("book-date");
     newPagesSpan.classList.add("book-pages");
+    deleteBookDiv.classList.add("delete-book", "non-selectable", "disable");
 
     newContainer.setAttribute("data-index", bookIndex)
     newContainer.setAttribute("data-title", book.title)
@@ -65,8 +67,17 @@ function drawBooks(library) {
     newAuthorSpan.textContent = book.author;
     newDateSpan.textContent = book.date;
     newPagesSpan.textContent = book.pages;
+    deleteBookDiv.textContent = "X";
 
-    newContainer.addEventListener("click", (e) => {
+    newContainer.addEventListener("mouseenter", (e) => {
+      deleteBookDiv.classList.remove("disable");
+    });
+
+    newContainer.addEventListener("mouseleave", (e) => {
+      deleteBookDiv.classList.add("disable");
+    });
+
+    deleteBookDiv.addEventListener("click", (e) => {
       if (confirm(`Do you wish to remove ${newContainer.getAttribute("data-title")} from the library?`)) {
         myLibrary.splice(newContainer.getAttribute("data-index"), 1);
         drawBooks(myLibrary);
@@ -77,6 +88,7 @@ function drawBooks(library) {
     newInfoDiv.appendChild(newAuthorSpan);
     newInfoDiv.appendChild(newDateSpan);
     newInfoDiv.appendChild(newPagesSpan);
+    newContainer.appendChild(deleteBookDiv);
     newContainer.appendChild(newImg);
     newContainer.appendChild(newInfoDiv);
     main.appendChild(newContainer);
