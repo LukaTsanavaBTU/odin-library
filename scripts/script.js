@@ -91,14 +91,16 @@ dialogClose.addEventListener("click", (e) => {
 
 dialogSubmit.addEventListener("click", (e) => {
   e.preventDefault();
-  newTitle = titleInput.value;
-  newAuthor = authorInput.value;
-  newDate = dateInput.value;
-  newPages = pagesInput.value;
-  newGenre = genreInput.value;
-  addBookToLibrary(newTitle, newAuthor, newDate, `${newPages} pages`, newGenre);
-  drawBooks(myLibrary);
-  dialog.close();
+  if ([titleInput, authorInput, dateInput, pagesInput, genreInput].every((input) => input.reportValidity())) {
+    newTitle = titleInput.value;
+    newAuthor = authorInput.value;
+    newDate = dateInput.value;
+    newPages = pagesInput.value;
+    newGenre = genreInput.value;
+    addBookToLibrary(newTitle, newAuthor, newDate, `${newPages} pages`, newGenre);
+    drawBooks(myLibrary);
+    dialog.close();
+  }
 });
 
 
