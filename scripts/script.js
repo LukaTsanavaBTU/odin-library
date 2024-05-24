@@ -10,12 +10,18 @@ const genreInput = dialog.querySelector("#genre");
 const myLibrary = [];
 
 
-function Book(title, author, date, pages, genre) {
-  this.title = title;
-  this.author = author;
-  this.date = date;
-  this.pages = pages;
-  this.genre = genre;
+class Book {
+  constructor(title, author, date, pages, genre) {
+    this.title = title;
+    this.author = author;
+    this.date = date;
+    this.pages = pages;
+    this.genre = genre;
+  }
+
+  addToLibrary(library) {
+    library.push(this);
+  }
 }
 
 
@@ -109,16 +115,16 @@ dialogSubmit.addEventListener("click", (e) => {
     newDate = dateInput.value;
     newPages = pagesInput.value;
     newGenre = genreInput.value;
-    addBookToLibrary(newTitle, newAuthor, newDate, `${newPages} pages`, newGenre);
+    (new Book(newTitle, newAuthor, newDate, `${newPages} pages`, newGenre)).addToLibrary(myLibrary);
     drawBooks(myLibrary);
     dialog.close();
   }
 });
 
 
-addBookToLibrary("Metro 2032", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
-addBookToLibrary("Metro 2033", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
-addBookToLibrary("Metro 2034", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
-addBookToLibrary("Metro 2035", "Dmitry Glukhovsky", "18 March 2010", "458 Pages", "Thriller");
+(new Book("Metro 2032", "Dmitry Glukhovsky", "18-03-2010", "458 Pages", "Thriller")).addToLibrary(myLibrary);
+(new Book("Metro 2033", "Dmitry Glukhovsky", "18-03-2010", "458 Pages", "Thriller")).addToLibrary(myLibrary);
+(new Book("Metro 2034", "Dmitry Glukhovsky", "18-03-2010", "458 Pages", "Thriller")).addToLibrary(myLibrary);
+(new Book("Metro 2035", "Dmitry Glukhovsky", "18-03-2010", "458 Pages", "Thriller")).addToLibrary(myLibrary);
 
 drawBooks(myLibrary);
