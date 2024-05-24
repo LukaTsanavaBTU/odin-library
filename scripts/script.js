@@ -25,13 +25,6 @@ class Book {
 }
 
 
-function addBookToLibrary(title, author, date, pages, genre) {
-  let newBook = new Book(title, author, date, pages, genre);
-  myLibrary.push(newBook);
-
-}
-
-
 function drawBooks(library) {
   main.innerHTML = "";
 
